@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,7 @@ import com.alex3645.event_d.R
 import com.alex3645.event_d.di.component.DaggerFragmentComponent
 import com.alex3645.event_d.di.module.FragmentModule
 import com.alex3645.event_d.model.Conference
+import kotlinx.android.synthetic.main.activity_feed.*
 import kotlinx.android.synthetic.main.recycler_fragment.*
 import kotlinx.android.synthetic.main.recycler_fragment.view.*
 import javax.inject.Inject
@@ -22,8 +25,6 @@ class ConferenceListFragment: Fragment(), ConferenceListContract.View, Conferenc
 
     @Inject
     lateinit var presenter: ConferenceListContract.Presenter
-
-    private val list : MutableList<Conference> = ArrayList()
 
     private lateinit var rootView: View
 
@@ -43,8 +44,10 @@ class ConferenceListFragment: Fragment(), ConferenceListContract.View, Conferenc
     ): View? {
         rootView = inflater!!.inflate(R.layout.recycler_fragment, container, false)
         val r = rootView.recyclerView
-        r.adapter = ConferenceListAdapter(activity!!, list, this)
+
+        r.adapter = ConferenceListAdapter(activity!!, ArrayList<Conference>(), this)
         r.layoutManager = LinearLayoutManager(activity)
+
         return rootView
     }
 
@@ -62,9 +65,9 @@ class ConferenceListFragment: Fragment(), ConferenceListContract.View, Conferenc
 
     override fun showProgress(show: Boolean) {
         if (show) {
-            progressBar.visibility = View.VISIBLE
+            rootView.progressBar.visibility = View.VISIBLE
         } else {
-            progressBar.visibility = View.GONE
+            rootView.progressBar.visibility = View.GONE
         }
     }
 
@@ -73,9 +76,9 @@ class ConferenceListFragment: Fragment(), ConferenceListContract.View, Conferenc
     }
 
     override fun loadDataSuccess(list: List<Conference>) {
+        Log.d("!!!", list.toString())
         (rootView.recyclerView.adapter as ConferenceListAdapter).list.addAll(list)
         (rootView.recyclerView.adapter as ConferenceListAdapter).notifyDataSetChanged()
-        Log.d("1",(rootView.recyclerView.adapter as ConferenceListAdapter).list.toString())
     }
 
     override fun itemDetail(postId: String) {

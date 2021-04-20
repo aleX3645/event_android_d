@@ -5,6 +5,8 @@ import com.alex3645.event_d.model.Conference
 import com.alex3645.event_d.ui.eventsList.ConferenceListContract
 import com.alex3645.event_d.ui.eventsList.ConferenceListFragment
 import com.alex3645.event_d.ui.eventsList.ConferenceListPresenter
+import com.alex3645.event_d.ui.login.LoginContract
+import com.alex3645.event_d.ui.login.LoginPresenter
 import dagger.Module
 import dagger.Provides
 
@@ -20,5 +22,10 @@ class FragmentModule {
     @Provides
     fun provideApiService(): ApiServiceInterface {
         return ApiServiceInterface.create()
+    }
+
+    @Provides
+    fun provideLoginPresenter(): LoginContract.Presenter {
+        return LoginPresenter()
     }
 }

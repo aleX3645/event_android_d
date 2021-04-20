@@ -28,7 +28,6 @@ class ConferenceListPresenter: ConferenceListContract.Presenter {
     }
 
     override fun loadData() {
-        Log.d("ccc", "vvv")
         var subscribe = api.getConferenceByText("Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MiIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2MTIzNDA1MTMsImV4cCI6MTYxMjM0NDExM30.1t8ECN_ohnII7DLkZw0asdZ-9MzglKnGnLUJpoFRSmo")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

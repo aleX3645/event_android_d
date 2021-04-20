@@ -4,4 +4,11 @@
     <string name="find">Поиск</string>
     <string name="tickets">Билеты</string>
     <string name="favorite">Избранное</string>
+
+    <string name="auth">Логин/Авторизация</string>
+    <string name="content_description_auth">Авторизоваться или зарегистрироваться</string>
+    <string name="content_description_search">Поиск</string>
+
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
 </resources>
