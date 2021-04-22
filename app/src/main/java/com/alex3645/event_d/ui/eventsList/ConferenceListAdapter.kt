@@ -36,11 +36,6 @@ class ConferenceListAdapter(private val context: FragmentActivity, var list: Mut
         var card = itemView.findViewById<CardView>(R.id.item_layout)
         var name = itemView.findViewById<TextView>(R.id.nameTextBox)
         var info = itemView.findViewById<TextView>(R.id.shortInfoTextBox)
-
-        fun bind(item: Conference) {
-            // title = item.post
-            // body etc.
-        }
     }
 
     interface onItemClickListener {

@@ -27,18 +27,20 @@ class ConferenceListPresenter: ConferenceListContract.Presenter {
         this.view = view
     }
 
-    override fun loadData() {
-        var subscribe = api.getConferenceByText("Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MiIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2MTIzNDA1MTMsImV4cCI6MTYxMjM0NDExM30.1t8ECN_ohnII7DLkZw0asdZ-9MzglKnGnLUJpoFRSmo")
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ list: List<Conference>? ->
-                view.showProgress(false)
-                view.loadDataSuccess(list!!.take(10))
-            }, { error ->
-                view.showProgress(false)
-                view.showErrorMessage(error.localizedMessage)
-            })
+    override fun loadAllConferenceData() {
+        for(i in 0 until 10){
+            var subscribe = api.getConferenceByCategory(i)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ list: List<Conference>? ->
+                        view.showProgress(false)
+                        view.loadDataSuccess(list!!.take(10))
+                    }, { error ->
+                        view.showProgress(false)
+                        view.showErrorMessage(error.localizedMessage)
+                    })
 
-        subscriptions.add(subscribe)
+            subscriptions.add(subscribe)
+        }
     }
 }

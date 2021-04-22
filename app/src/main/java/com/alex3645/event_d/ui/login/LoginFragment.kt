@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import butterknife.OnClick
+import com.alex3645.event_d.App
 import com.alex3645.event_d.R
+import com.alex3645.event_d.api.SessionManager
 import com.alex3645.event_d.di.component.DaggerFragmentComponent
 import com.alex3645.event_d.di.module.FragmentModule
 import kotlinx.android.synthetic.main.login_layout.*
@@ -83,9 +85,11 @@ class LoginFragment: Fragment(), LoginContract.View {
         toast.show()
     }
 
-    override fun loginSuccess() {
-        Log.d("suc", "suc")
+    override fun loginSuccess(login: String, password: String, token: String) {
+        val session = SessionManager(App.instance)
+        session.saveAuthToken(token)
     }
+
 
     companion object {
         val TAG: String = "LoginFragment"

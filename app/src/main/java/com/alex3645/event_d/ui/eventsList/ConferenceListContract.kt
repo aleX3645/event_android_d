@@ -12,6 +12,6 @@ class ConferenceListContract {
     }
 
     interface Presenter: BaseContract.Presenter<View> {
-        fun loadData()
+        fun loadAllConferenceData()
     }
 }

@@ -94,7 +94,7 @@ class ConferenceListFragment: Fragment(), ConferenceListContract.View, Conferenc
     }
 
     private fun initView() {
-        presenter.loadData()
+        presenter.loadAllConferenceData()
     }
 
     companion object {

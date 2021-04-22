@@ -1,6 +1,11 @@
 package com.alex3645.event_d.ui.login
 
+import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
+import android.util.JsonToken
 import com.alex3645.event_d.api.ApiServiceInterface
+import com.alex3645.event_d.api.SessionManager
 import com.alex3645.event_d.model.Conference
 import com.alex3645.event_d.model.LoginRequestBody
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -21,7 +26,7 @@ class LoginPresenter : LoginContract.Presenter{
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
                         view.showProgress(false)
-                        view.loginSuccess()
+                        view.loginSuccess(login, password, it.message)
                     }, { error ->
                         view.showProgress(false)
                         view.showErrorMessage(error.localizedMessage)
@@ -34,7 +39,7 @@ class LoginPresenter : LoginContract.Presenter{
                         view.showProgress(false)
 
                         if(it.success){
-                            view.loginSuccess()
+                            view.loginSuccess(login, password, it.message)
                         }else{
                             view.showErrorMessage(it.message)
                         }
@@ -44,6 +49,7 @@ class LoginPresenter : LoginContract.Presenter{
                     })
         }
     }
+
 
 
     override fun subscribe() {

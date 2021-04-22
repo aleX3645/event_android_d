@@ -8,7 +8,7 @@ class LoginContract {
     interface View: BaseContract.View {
         fun showProgress(show: Boolean)
         fun showErrorMessage(error: String)
-        fun loginSuccess()
+        fun loginSuccess(login: String, password: String, token: String)
     }
 
     interface Presenter: BaseContract.Presenter<LoginContract.View> {
