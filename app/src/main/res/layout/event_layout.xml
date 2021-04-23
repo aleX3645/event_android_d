@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/conferenceProgressBar"
+        android:id="@+id/eventProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
@@ -33,7 +33,7 @@
                 />
 
             <TextView
-                android:id="@+id/conferenceTitle"
+                android:id="@+id/eventTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
@@ -56,7 +56,7 @@
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     />
                 <TextView
-                    android:id="@+id/conferenceStartDate"
+                    android:id="@+id/eventStartDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/app_name"
@@ -81,7 +81,7 @@
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     />
                 <TextView
-                    android:id="@+id/conferenceEndDate"
+                    android:id="@+id/eventEndDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/app_name"
@@ -98,88 +98,14 @@
                 android:padding="16dp">
 
                 <Button
-                    android:id="@+id/addToPersonalSchedule"
+                    android:id="@+id/eventAddToPersonalSchedule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Добавить в личное расписание"
                     android:background="@color/purple_700"
                     android:textColor="@color/white"
-                    android:layout_marginBottom="10dp"
                     />
 
-                <Button
-                    android:id="@+id/scheduleButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Расписание мероприятия"
-                    android:background="@color/purple_700"
-                    android:textColor="@color/white"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Категория"
-                    android:textSize="16sp"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    />
-                <TextView
-                    android:id="@+id/conferenceCategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:textSize="20sp"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Местоположение"
-                    android:textSize="16sp"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    />
-                <TextView
-                    android:id="@+id/conferencePlace"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:textSize="20sp"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <Button
-                    android:id="@+id/placeButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Показать на карте"
-                    android:background="@color/purple_700"
-                    android:textColor="@color/white"
-                    />
             </LinearLayout>
 
             <LinearLayout
@@ -197,7 +123,7 @@
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     />
                 <TextView
-                    android:id="@+id/conferenceDescription"
+                    android:id="@+id/eventDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/app_name"
@@ -213,25 +139,14 @@
                 android:padding="16dp">
 
                 <Button
-                    android:id="@+id/organizerButton"
+                    android:id="@+id/speakerButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Организатор"
-                    android:background="@color/purple_700"
-                    android:textColor="@color/white"
-                    />
-
-                <Button
-                    android:id="@+id/registrationButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Зарегестрироваться на мероприятие"
+                    android:text="Спикер"
                     android:background="@color/purple_700"
                     android:textColor="@color/white"
                     />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

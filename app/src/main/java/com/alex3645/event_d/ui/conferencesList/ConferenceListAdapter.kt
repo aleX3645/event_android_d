@@ -1,4 +1,4 @@
-package com.alex3645.event_d.ui.eventsList
+package com.alex3645.event_d.ui.conferencesList
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.alex3645.event_d.R
 import com.alex3645.event_d.model.Conference
-import kotlinx.android.synthetic.main.item_layout.view.*
 
 class ConferenceListAdapter(private val context: FragmentActivity, var list: MutableList<Conference>,
                   fragment: Fragment): RecyclerView.Adapter<ConferenceListAdapter.ListViewHolder>() {
@@ -39,7 +38,7 @@ class ConferenceListAdapter(private val context: FragmentActivity, var list: Mut
     }
 
     interface onItemClickListener {
-        fun itemDetail(conferenceId : String)
+        fun itemDetail(conferenceId : Int)
     }
 
     public override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
@@ -51,7 +50,7 @@ class ConferenceListAdapter(private val context: FragmentActivity, var list: Mut
         holder.info.text = conference.description
 
         holder.card.setOnClickListener {
-            listener.itemDetail(conference.id.toString())
+            listener.itemDetail(conference.id)
         }
     }
 

@@ -1,22 +1,19 @@
-package com.alex3645.event_d.ui.eventsList
+package com.alex3645.event_d.ui.conferencesList
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.alex3645.event_d.R
 import com.alex3645.event_d.di.component.DaggerFragmentComponent
 import com.alex3645.event_d.di.module.FragmentModule
 import com.alex3645.event_d.model.Conference
-import kotlinx.android.synthetic.main.activity_feed.*
-import kotlinx.android.synthetic.main.recycler_fragment.*
+import com.alex3645.event_d.ui.conference.ConferenceFragment
+import com.alex3645.event_d.ui.login.LoginFragment
+import com.alex3645.event_d.util.AnimationConsider
 import kotlinx.android.synthetic.main.recycler_fragment.view.*
 import javax.inject.Inject
 
@@ -81,8 +78,12 @@ class ConferenceListFragment: Fragment(), ConferenceListContract.View, Conferenc
         (rootView.recyclerView.adapter as ConferenceListAdapter).notifyDataSetChanged()
     }
 
-    override fun itemDetail(postId: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun itemDetail(conId: Int) {
+        fragmentManager?.beginTransaction()
+                ?.setCustomAnimations(AnimationConsider.considerEnterAnimation(TAG, ConferenceFragment.TAG),AnimationConsider.considerExitAnimation(TAG, LoginFragment.TAG))
+                ?.disallowAddToBackStack()
+                ?.replace(R.id.frame, ConferenceFragment(conId), ConferenceFragment.TAG)
+                ?.commit()
     }
 
     private fun injectDependency() {

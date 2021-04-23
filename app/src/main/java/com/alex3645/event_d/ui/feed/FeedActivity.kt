@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import com.alex3645.event_d.R
 import com.alex3645.event_d.di.component.DaggerActivityComponent
 import com.alex3645.event_d.di.module.ActivityModule
-import com.alex3645.event_d.ui.eventsList.ConferenceListFragment
+import com.alex3645.event_d.ui.conferencesList.ConferenceListFragment
 import com.alex3645.event_d.ui.login.LoginFragment
 import com.alex3645.event_d.ui.search.SearchFragmentList
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.alex3645.event_d.util.AnimationConsider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_feed.*
 import java.util.*
@@ -87,7 +87,7 @@ class FeedActivity : AppCompatActivity(), FeedContract.View {
         var oldTag = stack.peek().tag.toString()
         stack.pop()
         supportFragmentManager.beginTransaction()
-                .setCustomAnimations(considerEnterAnimation(oldTag, ConferenceListFragment.TAG),considerExitAnimation(oldTag, ConferenceListFragment.TAG))
+                .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, ConferenceListFragment.TAG),AnimationConsider.considerExitAnimation(oldTag, ConferenceListFragment.TAG))
                 .disallowAddToBackStack()
                 .replace(R.id.frame, stack.peek(), stack.peek().tag)
                 .commit()
@@ -110,7 +110,7 @@ class FeedActivity : AppCompatActivity(), FeedContract.View {
         stack.push(fragment)
 
         supportFragmentManager.beginTransaction()
-                .setCustomAnimations(considerEnterAnimation(oldTag, ConferenceListFragment.TAG),considerExitAnimation(oldTag, ConferenceListFragment.TAG))
+                .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, ConferenceListFragment.TAG),AnimationConsider.considerExitAnimation(oldTag, ConferenceListFragment.TAG))
             .disallowAddToBackStack()
             .replace(R.id.frame, fragment, ConferenceListFragment.TAG)
             .commit()
@@ -131,7 +131,7 @@ class FeedActivity : AppCompatActivity(), FeedContract.View {
         stack.push(fragment)
 
         supportFragmentManager.beginTransaction()
-                .setCustomAnimations(considerEnterAnimation(oldTag, LoginFragment.TAG),considerExitAnimation(oldTag, LoginFragment.TAG))
+                .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, LoginFragment.TAG),AnimationConsider.considerExitAnimation(oldTag, LoginFragment.TAG))
                 .disallowAddToBackStack()
                 .replace(R.id.frame, fragment, LoginFragment.TAG)
                 .commit()
@@ -152,52 +152,10 @@ class FeedActivity : AppCompatActivity(), FeedContract.View {
         stack.push(fragment)
 
         supportFragmentManager.beginTransaction()
-                .setCustomAnimations(considerEnterAnimation(oldTag, SearchFragmentList.TAG), considerExitAnimation(oldTag, SearchFragmentList.TAG))
+                .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, SearchFragmentList.TAG), AnimationConsider.considerExitAnimation(oldTag, SearchFragmentList.TAG))
                 .disallowAddToBackStack()
                 .replace(R.id.frame, fragment, SearchFragmentList.TAG)
                 .commit()
-    }
-
-    private fun considerEnterAnimation(curTag: String, newTag: String): Int{
-        Log.d("anim", curTag+ " nTag: " + newTag)
-
-        if(newTag == SearchFragmentList.TAG){
-            return R.anim.enter_from_up
-        }
-
-        if(newTag == LoginFragment.TAG){
-            return R.anim.enter_from_right
-        }
-
-        if(newTag == ConferenceListFragment.TAG && curTag == SearchFragmentList.TAG){
-            return R.anim.enter_from_bottom
-        }
-
-        if(newTag == ConferenceListFragment.TAG && curTag == LoginFragment.TAG){
-            return R.anim.enter_from_left
-        }
-
-        return R.anim.enter_from_up
-    }
-
-    private fun considerExitAnimation(curTag: String, newTag: String): Int{
-        if(newTag == SearchFragmentList.TAG){
-            return R.anim.exit_to_bottom
-        }
-
-        if(newTag == LoginFragment.TAG){
-            return R.anim.exit_to_left
-        }
-
-        if(newTag == ConferenceListFragment.TAG && curTag == SearchFragmentList.TAG){
-            return R.anim.exit_to_up
-        }
-
-        if(newTag == ConferenceListFragment.TAG && curTag == LoginFragment.TAG){
-            return R.anim.exit_to_right
-        }
-
-        return R.anim.exit_to_up
     }
 
 }

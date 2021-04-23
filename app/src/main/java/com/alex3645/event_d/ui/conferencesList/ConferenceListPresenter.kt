@@ -1,6 +1,5 @@
-package com.alex3645.event_d.ui.eventsList
+package com.alex3645.event_d.ui.conferencesList
 
-import android.util.Log
 import com.alex3645.event_d.api.ApiServiceInterface
 import com.alex3645.event_d.model.Conference
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
