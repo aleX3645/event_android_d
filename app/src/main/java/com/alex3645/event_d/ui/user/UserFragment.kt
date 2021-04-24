@@ -13,6 +13,7 @@ import com.alex3645.event_d.di.module.FragmentModule
 import com.alex3645.event_d.model.Event
 import com.alex3645.event_d.model.User
 import com.alex3645.event_d.ui.event.EventContract
+import kotlinx.android.synthetic.main.activity_feed.*
 import kotlinx.android.synthetic.main.event_layout.view.*
 import kotlinx.android.synthetic.main.item_layout.view.*
 import kotlinx.android.synthetic.main.user_layout.view.*

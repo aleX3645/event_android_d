@@ -41,7 +41,7 @@ class SearchConferenceListAdapter(private val context: FragmentActivity, var lis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchConferenceListAdapter.ListViewHolder {
-        val itemView = LayoutInflater.from(context).inflate(R.layout.search_simple_item, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.search_simple_item_layout, parent, false)
         return SearchConferenceListAdapter.ListViewHolder(itemView)
     }
 

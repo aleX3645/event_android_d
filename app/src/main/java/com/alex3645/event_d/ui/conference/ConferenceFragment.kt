@@ -18,6 +18,7 @@ import com.alex3645.event_d.ui.eventList.EventListFragment
 import com.alex3645.event_d.ui.login.LoginContract
 import com.alex3645.event_d.ui.login.LoginFragment
 import com.alex3645.event_d.util.AnimationConsider
+import kotlinx.android.synthetic.main.activity_feed.*
 import kotlinx.android.synthetic.main.conference_layout.view.*
 import kotlinx.android.synthetic.main.login_layout.view.*
 import kotlinx.android.synthetic.main.recycler_fragment.view.*
@@ -102,8 +103,8 @@ class ConferenceFragment(val conferenceID: Int): Fragment(), ConferenceContract.
     override fun showConferenceDataSuccess(conferenceData: Conference) {
         rootView.conferenceTitle.text = conferenceData.name
         rootView.conferenceCategory.text = conferenceData.category.toString()
-        rootView.conferenceStartDate.text = conferenceData.date_start
-        rootView.conferenceEndDate.text = conferenceData.date_end
+        rootView.conferenceStartDate.text = conferenceData.date_start.toString()
+        rootView.conferenceEndDate.text = conferenceData.date_end.toString()
         rootView.conferencePlace.text = conferenceData.location
         rootView.conferenceDescription.text = conferenceData.description
     }

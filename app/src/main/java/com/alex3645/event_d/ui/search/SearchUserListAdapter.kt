@@ -36,7 +36,7 @@ class SearchUserListAdapter(private val context: FragmentActivity, var list: Mut
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchUserListAdapter.ListViewHolder {
-        val itemView = LayoutInflater.from(context).inflate(R.layout.search_simple_item, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.search_simple_item_layout, parent, false)
         return SearchUserListAdapter.ListViewHolder(itemView)
     }
 

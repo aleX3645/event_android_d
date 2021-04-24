@@ -15,6 +15,7 @@ import com.alex3645.event_d.R
 import com.alex3645.event_d.api.SessionManager
 import com.alex3645.event_d.di.component.DaggerFragmentComponent
 import com.alex3645.event_d.di.module.FragmentModule
+import kotlinx.android.synthetic.main.activity_feed.*
 import kotlinx.android.synthetic.main.login_layout.*
 import kotlinx.android.synthetic.main.login_layout.view.*
 import kotlinx.android.synthetic.main.recycler_fragment.view.*

@@ -37,6 +37,7 @@ class FeedActivity : AppCompatActivity(), FeedContract.View {
     }
 
     private fun init(){
+        topNavigationAppBar.title = "Афиша"
         topNavigationAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.auth -> {

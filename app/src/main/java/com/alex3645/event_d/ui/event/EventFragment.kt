@@ -99,8 +99,8 @@ class EventFragment(val eventID: Int): Fragment(), EventContract.View {
     override fun showEventDataSuccess(eventData: Event) {
         this.eventData = eventData
         rootView.eventTitle.text = eventData.name
-        rootView.eventStartDate.text = eventData.date_start
-        rootView.eventEndDate.text = eventData.date_end
+        rootView.eventStartDate.text = eventData.date_start.toString()
+        rootView.eventEndDate.text = eventData.date_end.toString()
         rootView.eventDescription.text = eventData.description
     }
 

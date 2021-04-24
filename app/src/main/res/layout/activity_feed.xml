@@ -11,7 +11,9 @@
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/default_upper_menu"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
+        app:subtitleTextColor="@color/white"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary">
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <FrameLayout
         android:id="@+id/frame"

@@ -1,9 +1,11 @@
 package com.alex3645.event_d.model
 
+import java.util.*
+
 data class Conference(
     val id: Int, val name: String, val description: String, val location: String,
-    val category: Int, val tariffs: List<Tariff>, val date_start: String,
-    val date_end: String, val is_cancelled: Boolean)
+    val category: Int, val tariffs: List<Tariff>, val date_start: Date,
+    val date_end: Date, val is_cancelled: Boolean)
 
 /*
 {

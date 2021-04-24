@@ -55,7 +55,7 @@ class EventListAdapter(private val context: FragmentActivity, var list: MutableL
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListAdapter.ListViewHolder {
-        val itemView = LayoutInflater.from(context).inflate(R.layout.search_simple_item, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.search_simple_item_layout, parent, false)
         return EventListAdapter.ListViewHolder(itemView)
     }
 }

@@ -18,6 +18,7 @@ import com.alex3645.event_d.model.Conference
 import com.alex3645.event_d.model.Event
 import com.alex3645.event_d.model.User
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_feed.*
 import kotlinx.android.synthetic.main.recycler_fragment.*
 import kotlinx.android.synthetic.main.search_layout.*
 import kotlinx.android.synthetic.main.search_layout.view.*
