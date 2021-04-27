@@ -33,6 +33,9 @@ interface ApiServiceInterface {
     @GET("api/usr/info/byId/{val}")
     fun getUserById(@Path("val") id: Int): Observable<User>
 
+    @GET("api/usr/info/{val}")
+    fun getUserByLogin(@Path("val") login: String): Observable<User>
+
 
     @POST("api/login/user")
     fun authAsUser(@Body request: LoginRequestBody): Observable<AuthInfo>

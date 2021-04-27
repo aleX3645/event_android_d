@@ -6,8 +6,10 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.alex3645.event_d.R
+import com.alex3645.event_d.api.SessionManager
 import com.alex3645.event_d.di.component.DaggerActivityComponent
 import com.alex3645.event_d.di.module.ActivityModule
+import com.alex3645.event_d.ui.account.AccountFragment
 import com.alex3645.event_d.ui.conferencesList.ConferenceListFragment
 import com.alex3645.event_d.ui.login.LoginFragment
 import com.alex3645.event_d.ui.search.SearchFragmentList
@@ -128,14 +130,24 @@ class FeedActivity : AppCompatActivity(), FeedContract.View {
             stack.pop()
         }
 
-        val fragment = LoginFragment().newInstance()
-        stack.push(fragment)
+        if(SessionManager.auth){
+            val fragment = AccountFragment()
+            stack.push(fragment)
+            supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, AccountFragment.TAG), AnimationConsider.considerExitAnimation(oldTag, AccountFragment.TAG))
+                    .disallowAddToBackStack()
+                    .replace(R.id.frame, fragment, AccountFragment.TAG)
+                    .commit()
+        }else{
+            val fragment = LoginFragment().newInstance()
+            stack.push(fragment)
 
-        supportFragmentManager.beginTransaction()
-                .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, LoginFragment.TAG),AnimationConsider.considerExitAnimation(oldTag, LoginFragment.TAG))
-                .disallowAddToBackStack()
-                .replace(R.id.frame, fragment, LoginFragment.TAG)
-                .commit()
+            supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, LoginFragment.TAG),AnimationConsider.considerExitAnimation(oldTag, LoginFragment.TAG))
+                    .disallowAddToBackStack()
+                    .replace(R.id.frame, fragment, LoginFragment.TAG)
+                    .commit()
+        }
     }
 
     override fun showSearchFragment() {
