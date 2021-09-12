@@ -1,6 +1,6 @@
 package com.alex3645.event_d.model
 
-data class Tariff(val id: Int, val name: String, val cost: Double, val conference_id: Int, val tickets_left:Int, val tickets_total: Int)
+data class Tariff(val id: Int, val name: String = "Не указано", val cost: Double, val conference_id: Int, val tickets_left:Int, val tickets_total: Int)
 
 /*
 {

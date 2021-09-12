@@ -50,7 +50,7 @@ class ConferenceFragment(val conferenceID: Int): Fragment(), ConferenceContract.
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         rootView = inflater!!.inflate(R.layout.conference_layout, container, false)
         return rootView
     }
@@ -95,9 +95,9 @@ class ConferenceFragment(val conferenceID: Int): Fragment(), ConferenceContract.
     }
 
     override fun showErrorMessage(error: String) {
-        val toast = Toast.makeText(requireActivity(), error, Toast.LENGTH_LONG)
+        //val toast = Toast.makeText(requireActivity(), error, Toast.LENGTH_LONG)
         Log.d("error", error)
-        toast.show()
+        //toast.show()
     }
 
     override fun showConferenceDataSuccess(conferenceData: Conference) {

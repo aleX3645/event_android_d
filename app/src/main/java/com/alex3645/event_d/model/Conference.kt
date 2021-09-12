@@ -3,7 +3,7 @@ package com.alex3645.event_d.model
 import java.util.*
 
 data class Conference(
-    val id: Int, val name: String, val description: String, val location: String,
+    val id: Int, val name: String = "Не указано", val description: String = "Не указано", val location: String = "Не указано",
     val category: Int, val tariffs: List<Tariff>, val date_start: Date,
     val date_end: Date, val is_cancelled: Boolean)
 

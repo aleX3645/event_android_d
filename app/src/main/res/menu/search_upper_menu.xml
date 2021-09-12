@@ -5,7 +5,6 @@
     <item
         android:id="@+id/auth1"
         android:icon="@drawable/ic_user"
-        android:title="@string/auth"
-        android:contentDescription="@string/content_description_auth"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:title="auth" />
 </menu>

@@ -165,7 +165,8 @@ class FeedActivity : AppCompatActivity(), FeedContract.View {
         stack.push(fragment)
 
         supportFragmentManager.beginTransaction()
-                .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, SearchFragmentList.TAG), AnimationConsider.considerExitAnimation(oldTag, SearchFragmentList.TAG))
+                .setCustomAnimations(AnimationConsider.considerEnterAnimation(oldTag, SearchFragmentList.TAG),
+                                     AnimationConsider.considerExitAnimation(oldTag, SearchFragmentList.TAG))
                 .disallowAddToBackStack()
                 .replace(R.id.frame, fragment, SearchFragmentList.TAG)
                 .commit()

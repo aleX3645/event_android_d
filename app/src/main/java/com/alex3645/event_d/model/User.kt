@@ -1,8 +1,8 @@
 package com.alex3645.event_d.model
 
 data class User(
-        val id: Int, val login: String, val name: String, val surname: String,
-        val email: String, val phone: String, val description: String)
+        val id: Int, val login: String = "Не указано", val name: String = "Не указано", val surname: String = "Не указано",
+        val email: String = "Не указано", val phone: String = "Не указано", val description: String = "Не указано")
 /*
 {
         "id": 2,

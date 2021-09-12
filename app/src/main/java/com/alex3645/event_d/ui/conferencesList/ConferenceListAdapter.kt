@@ -15,11 +15,11 @@ import com.alex3645.event_d.model.Conference
 class ConferenceListAdapter(private val context: FragmentActivity, var list: MutableList<Conference>,
                   fragment: Fragment): RecyclerView.Adapter<ConferenceListAdapter.ListViewHolder>() {
 
-    private val listener: ConferenceListAdapter.onItemClickListener
+    private val listener: onItemClickListener
 
     init {
 
-        this.listener = fragment as ConferenceListAdapter.onItemClickListener
+        this.listener = fragment as onItemClickListener
     }
 
 
@@ -41,7 +41,7 @@ class ConferenceListAdapter(private val context: FragmentActivity, var list: Mut
         fun itemDetail(conferenceId : Int)
     }
 
-    public override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         Log.d("2222", "kek")
 
         var conference = list[position]

@@ -13,7 +13,7 @@ class AnimationConsider {
             if(newTag == SearchFragmentList.TAG){
                 return R.anim.enter_from_up
             }
-
+            
             if(newTag == LoginFragment.TAG){
                 return R.anim.enter_from_right
             }

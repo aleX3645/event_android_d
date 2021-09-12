@@ -50,7 +50,7 @@ interface ApiServiceInterface {
             val retrofit = retrofit2.Retrofit.Builder()
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.TEST_URL)
+                .baseUrl(Constants.SPRING_TICKET_LAN_URL)
                 .build()
 
             return retrofit.create(ApiServiceInterface::class.java)
